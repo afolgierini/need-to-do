@@ -47,11 +47,3 @@ export const renderTasks = () => {
         appendTasks(task);  
     })
 }
-
-
-
-/*
-     <input type="date" name="" id="" data-id="" class="task-date" value="${item.dueDate}">
-
-     
-*/

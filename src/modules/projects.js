@@ -1,7 +1,7 @@
 export const projects = (() => {
     let allProjects = [];
 
-    function Project(projectName, projectId, projectTasks = []){
+    function Project(projectName, projectId, projectTasks = []) {
         this.name = projectName;
         this.projectId = projectId;
         this.tasks = projectTasks;
@@ -9,7 +9,7 @@ export const projects = (() => {
 
     let selectedProjectIndex;
 
-    function storeProject(projectName, projectId, projectTasks){
+    function storeProject(projectName, projectId, projectTasks) {
         projects.allProjects.push(new Project(projectName, projectId, projectTasks))
     };
 

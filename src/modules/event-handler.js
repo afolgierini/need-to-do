@@ -67,7 +67,7 @@ export const eventHandler = () => {
         // Add Project buttons event
         document.querySelector('.add-normal').addEventListener('mouseup', e => {
             // Checks if the input value is empty or is composed by spaces
-            if(document.querySelector('.sidebar-input').value === '' || !/\S/.test(document.querySelector('.sidebar-input').value)) return
+            if (document.querySelector('.sidebar-input').value === '' || !/\S/.test(document.querySelector('.sidebar-input').value)) return
 
             projects.storeProject(document.querySelector('.sidebar-input').value, projects.allProjects.length);
 
@@ -77,7 +77,7 @@ export const eventHandler = () => {
         })
         document.querySelector('.add-mobile').addEventListener('mouseup', e => {
             // Checks if the input value is empty or is composed by spaces
-            if(document.querySelector('.sidebar-mobile-input').value === '' || !/\S/.test(document.querySelector('.sidebar-mobile-input').value)) return
+            if (document.querySelector('.sidebar-mobile-input').value === '' || !/\S/.test(document.querySelector('.sidebar-mobile-input').value)) return
 
             projects.storeProject(document.querySelector('.sidebar-mobile-input').value, projects.allProjects.length);
 
@@ -91,7 +91,7 @@ export const eventHandler = () => {
         const selectedProjectEvent = () => {
             document.querySelectorAll('.projects').forEach(item => {
                 item.addEventListener('mouseup', e => {
-                    if(e.target.innerText === '✖') return
+                    if (e.target.innerText === '✖') return
                     document.querySelector('.selected-project-title').innerHTML = projects.getProjectName(projects.getProjectIndex(Number(e.target.id)));
 
                     projects.selectedProjectIndex = projects.getProjectIndex(Number(e.target.id))
@@ -120,12 +120,12 @@ export const eventHandler = () => {
         // Confirm new task event handler
         document.querySelector('.confirm-new-task-btn').addEventListener('mouseup', e => {
             // Checks if the input value is empty or is composed by spaces
-            if(document.querySelector('.new-task-name-input').value === '' || !/\S/.test(document.querySelector('.new-task-name-input').value)) {
+            if (document.querySelector('.new-task-name-input').value === '' || !/\S/.test(document.querySelector('.new-task-name-input').value)) {
                 modalAndBackground()
                 resetInputsValues()
                 return
             }
-            if(projects.selectedProjectIndex === undefined){
+            if(projects.selectedProjectIndex === undefined) {
                 modalAndBackground()
                 resetInputsValues()
                 return
@@ -203,18 +203,18 @@ export const eventHandler = () => {
         // Highlight selected project (different colors and style)
         const highlightProjectEvent = () => {
             const removeHighlightedProject = () => {
-                if(document.querySelector('.highlighted-project')){
+                if (document.querySelector('.highlighted-project')){
                     document.querySelector('.highlighted-project').classList.remove('highlighted-project')
                 }
             }      
             document.querySelectorAll('.projects').forEach(project => {
                 project.addEventListener('mouseup', e => {
-                    if(e.target.classList.contains('project-name')){
+                    if (e.target.classList.contains('project-name')) {
                         removeHighlightedProject()
                         e.target.parentNode.classList.add('highlighted-project')
-                    }else if(e.target.classList.contains('remove-project-btn') || e.target.classList.contains('remove-project-btn-wrapper')){
+                    } else if (e.target.classList.contains('remove-project-btn') || e.target.classList.contains('remove-project-btn-wrapper')) {
                         // do nothing
-                    }else{
+                    } else {
                         removeHighlightedProject()
                         e.target.classList.add('highlighted-project')
                     }  
